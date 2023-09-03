@@ -16,5 +16,10 @@ namespace WebAPI_Studies.Infrastructure
         {
             return _context.Employees.ToList();
         }
+
+        public EmployeeModel GetById(int id)
+        {
+            return _context.Employees.Find(id);
+        }
     }
 }

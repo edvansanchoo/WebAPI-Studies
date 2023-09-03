@@ -7,5 +7,6 @@ namespace WebAPI_Studies.Model
         void Add(EmployeeModel employeeModel);
 
         List<EmployeeModel> GetAll();
+        EmployeeModel? GetById(int id);
     }
 }
