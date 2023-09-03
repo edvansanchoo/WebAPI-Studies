@@ -1,17 +1,34 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI_Studies.Model;
 using WebAPI_Studies.Models;
+using WebAPI_Studies.ViewModel;
 
 namespace WebAPI_Studies.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/employee")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<List<EmployeeModel>> GetAllEmployees() 
+        private readonly IEmployeeRepository _employeeRepository;
+
+        public EmployeeController(IEmployeeRepository employeeRepository)
         {
-            return Ok(new List<EmployeeModel>() {new EmployeeModel("jonas", 15, "local/teste.txt"), new EmployeeModel("Marcos", 25, "local/teste1.txt") });
+            _employeeRepository = employeeRepository ?? throw new ArgumentNullException();
+        }
+
+        [HttpPost]
+        public IActionResult Add(EmployeeViewModel employeeViewModel)
+        {
+            var employee = new EmployeeModel(employeeViewModel.Name, employeeViewModel.Age, null);
+            _employeeRepository.Add(employee);
+            return Ok();
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_employeeRepository.GetAll());
         }
     }
 }
