@@ -1,4 +1,4 @@
-﻿namespace WebAPI_Studies.ViewModel
+﻿namespace WebAPI_Studies.Application.ViewModel
 {
     public class UserViewModel
     {

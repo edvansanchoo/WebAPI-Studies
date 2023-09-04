@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI_Studies.Model;
-using WebAPI_Studies.Models;
-using WebAPI_Studies.Services;
+using WebAPI_Studies.Application.Services;
+using WebAPI_Studies.Domain.Model;
 
 namespace WebAPI_Studies.Controllers
 {

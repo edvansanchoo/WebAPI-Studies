@@ -12,7 +12,7 @@
             .Build();
         }
 
-        public static string GetSecret()
+        public static string? GetSecret()
         {
             return _configuration.GetConnectionString("SecretAuth");
         }

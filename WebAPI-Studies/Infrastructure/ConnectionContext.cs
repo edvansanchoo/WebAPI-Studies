@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using WebAPI_Studies.Model;
-using WebAPI_Studies.Models;
+using WebAPI_Studies.Domain.Model;
 
 namespace WebAPI_Studies.Infrastructure
 {

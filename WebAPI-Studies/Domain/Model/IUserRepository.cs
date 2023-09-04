@@ -1,6 +1,6 @@
-﻿using WebAPI_Studies.ViewModel;
+﻿using WebAPI_Studies.Application.ViewModel;
 
-namespace WebAPI_Studies.Model
+namespace WebAPI_Studies.Domain.Model
 {
     public interface IUserRepository
     {
@@ -11,6 +11,6 @@ namespace WebAPI_Studies.Model
         UserModel? GetByUserNameAndPassWord(string username, string password);
 
         bool Delete(int id);
-        
+
     }
 }

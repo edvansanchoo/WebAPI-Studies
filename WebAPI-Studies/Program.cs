@@ -4,9 +4,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using WebAPI_Studies.Infrastructure;
-using WebAPI_Studies.Model;
 using WebAPI_Studies;
-using WebAPI_Studies.Services;
+using WebAPI_Studies.Domain.Model;
+using WebAPI_Studies.Application.Services;
+using WebAPI_Studies.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

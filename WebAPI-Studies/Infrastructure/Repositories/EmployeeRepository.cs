@@ -1,7 +1,6 @@
-﻿using WebAPI_Studies.Model;
-using WebAPI_Studies.Models;
+﻿using WebAPI_Studies.Domain.Model;
 
-namespace WebAPI_Studies.Infrastructure
+namespace WebAPI_Studies.Infrastructure.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {

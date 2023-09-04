@@ -1,21 +1,21 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebAPI_Studies.Model
+namespace WebAPI_Studies.Domain.Model
 {
     [Table("userauthentication")]
     public class UserModel
     {
         [Key]
         public int id { get; set; }
-        public string username{ get; set; }
+        public string username { get; set; }
         public string password { get; set; }
 
         public UserModel()
         {
         }
 
-        public UserModel( string username, string password)
+        public UserModel(string username, string password)
         {
             this.username = username;
             this.password = password;
