@@ -4,9 +4,12 @@
     {
         private static IConfiguration _configuration;
 
-        public Key(IConfiguration configuration)
+        static Key()
         {
-            _configuration = configuration;
+            _configuration = new ConfigurationBuilder()
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: true)
+            .Build();
         }
 
         public static string GetSecret()
