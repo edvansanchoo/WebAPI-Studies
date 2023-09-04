@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using WebAPI_Studies.Model;
 using WebAPI_Studies.Models;
 
 namespace WebAPI_Studies.Infrastructure
@@ -7,16 +9,19 @@ namespace WebAPI_Studies.Infrastructure
     {
         private readonly IConfiguration _configuration;
 
-        public ConnectionContext(IConfiguration configuration)
+        public ConnectionContext()
         {
-            _configuration = configuration;
+            _configuration = new ConfigurationBuilder()
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: true)
+            .Build();
         }
 
         public DbSet<EmployeeModel> Employees { get; set; }
+        public DbSet<UserModel> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DB_webapi")); ;
         }
     }

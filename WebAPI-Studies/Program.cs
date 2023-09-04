@@ -6,6 +6,7 @@ using System.Text;
 using WebAPI_Studies.Infrastructure;
 using WebAPI_Studies.Model;
 using WebAPI_Studies;
+using WebAPI_Studies.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +51,9 @@ builder.Services.AddSwaggerGen(c =>
 //    );
 
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ConnectionContext>();
+builder.Services.AddScoped<TokenService>();
 
 var key = Encoding.ASCII.GetBytes(Key.GetSecret());
 
