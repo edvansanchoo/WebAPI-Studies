@@ -12,6 +12,15 @@ namespace WebAPI_Studies.Models
         public int age { get; private set; }
         public string? photo { get; private set; }
 
+
+        public EmployeeModel(int id, string name, int age, string photo)
+        {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+            this.photo = photo;
+        }
+
         public EmployeeModel(string name, int age, string photo)
         {
             this.name = name;

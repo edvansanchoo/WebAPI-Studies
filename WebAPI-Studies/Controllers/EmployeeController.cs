@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI_Studies.Model;
 using WebAPI_Studies.Models;
@@ -17,6 +18,7 @@ namespace WebAPI_Studies.Controllers
             _employeeRepository = employeeRepository ?? throw new Exception("Fail Injection Employee Repository");
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Add([FromForm] EmployeeViewModel employeeViewModel)
         {
@@ -30,12 +32,14 @@ namespace WebAPI_Studies.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
             return Ok(_employeeRepository.GetAll());
         }
 
+        [Authorize]
         [HttpPost]
         [Route("{id}/download")]
         public IActionResult DownloadPhoto(int id) 
