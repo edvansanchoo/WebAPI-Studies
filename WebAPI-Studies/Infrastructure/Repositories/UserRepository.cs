@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using WebAPI_Studies.Model;
-using WebAPI_Studies.ViewModel;
+using WebAPI_Studies.Application.ViewModel;
+using WebAPI_Studies.Domain.Model;
 
-namespace WebAPI_Studies.Infrastructure
+namespace WebAPI_Studies.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -14,7 +14,8 @@ namespace WebAPI_Studies.Infrastructure
                 _context.User.Add(new UserModel(userViewModel.username, userViewModel.password));
                 _context.SaveChanges();
                 return true;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
                 return false;
@@ -26,7 +27,7 @@ namespace WebAPI_Studies.Infrastructure
             UserModel userDb = GetById(id);
             if (userDb != null)
             {
-                _context.User.Remove(userDb);  
+                _context.User.Remove(userDb);
                 _context.SaveChanges();
                 return true;
             }

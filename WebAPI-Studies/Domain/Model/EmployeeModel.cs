@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebAPI_Studies.Models
+namespace WebAPI_Studies.Domain.Model
 {
     [Table("employee")]
     public class EmployeeModel
     {
         [Key]
         public int id { get; private set; }
-        public string name{ get; private set; }
+        public string name { get; private set; }
         public int age { get; private set; }
         public string? photo { get; private set; }
 
