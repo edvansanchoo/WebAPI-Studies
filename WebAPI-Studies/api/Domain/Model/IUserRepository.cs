@@ -1,6 +1,6 @@
-﻿using WebAPI_Studies.Application.ViewModel;
+﻿using WebAPI_Studies.api.Application.ViewModel;
 
-namespace WebAPI_Studies.Domain.Model
+namespace WebAPI_Studies.api.Domain.Model
 {
     public interface IUserRepository
     {

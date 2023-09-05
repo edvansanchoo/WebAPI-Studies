@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI_Studies.Application.ViewModel;
-using WebAPI_Studies.Domain.Model;
+using WebAPI_Studies.api.Application.ViewModel;
+using WebAPI_Studies.api.Domain.Model;
 
-namespace WebAPI_Studies.Controllers
+namespace WebAPI_Studies.api.UI.Controllers
 {
     [Route("api/v1/user")]
     [ApiController]
@@ -39,7 +39,8 @@ namespace WebAPI_Studies.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Save(UserViewModel userViewModel) {
+        public IActionResult Save(UserViewModel userViewModel)
+        {
             if (_userRepository.Add(userViewModel))
             {
                 return Ok(userViewModel);
@@ -61,9 +62,9 @@ namespace WebAPI_Studies.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id) 
-        { 
-            if(_userRepository.Delete(id)) 
+        public IActionResult Delete(int id)
+        {
+            if (_userRepository.Delete(id))
             {
                 return Ok("User Deleted");
             }

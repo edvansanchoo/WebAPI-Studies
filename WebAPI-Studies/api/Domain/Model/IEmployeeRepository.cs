@@ -1,4 +1,4 @@
-﻿namespace WebAPI_Studies.Domain.Model
+﻿namespace WebAPI_Studies.api.Domain.Model
 {
     public interface IEmployeeRepository
     {

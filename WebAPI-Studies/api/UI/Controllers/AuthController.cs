@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI_Studies.Application.Services;
-using WebAPI_Studies.Domain.Model;
+using WebAPI_Studies.api.Application.Services;
+using WebAPI_Studies.api.Domain.Model;
 
-namespace WebAPI_Studies.Controllers
+namespace WebAPI_Studies.api.UI.Controllers
 {
     [Route("api/v1/auth")]
     [ApiController]
@@ -25,7 +25,7 @@ namespace WebAPI_Studies.Controllers
             var user = _userRepository.GetByUserNameAndPassWord(username, password);
 
 
-            if(user != null)
+            if (user != null)
             {
                 var token = _tokenService.GenerateToken(user);
                 return Ok(token);

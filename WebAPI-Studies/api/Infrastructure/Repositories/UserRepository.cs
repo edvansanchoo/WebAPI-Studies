@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using WebAPI_Studies.Application.ViewModel;
-using WebAPI_Studies.Domain.Model;
+using WebAPI_Studies.api.Application.ViewModel;
+using WebAPI_Studies.api.Domain.Model;
+using WebAPI_Studies.api.Infrastructure;
 
-namespace WebAPI_Studies.Infrastructure.Repositories
+namespace WebAPI_Studies.api.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
