@@ -2,9 +2,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using WebAPI_Studies.Domain.Model;
+using WebAPI_Studies.api.Domain.Model;
 
-namespace WebAPI_Studies.Application.Services
+namespace WebAPI_Studies.api.Application.Services
 {
     public class TokenService
     {

@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using WebAPI_Studies.Infrastructure;
 using WebAPI_Studies;
-using WebAPI_Studies.Domain.Model;
-using WebAPI_Studies.Application.Services;
-using WebAPI_Studies.Infrastructure.Repositories;
+using WebAPI_Studies.api.Infrastructure;
+using WebAPI_Studies.api.Infrastructure.Repositories;
+using WebAPI_Studies.api.Application.Services;
+using WebAPI_Studies.api.Domain.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 

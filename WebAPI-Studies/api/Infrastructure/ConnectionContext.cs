@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using WebAPI_Studies.Domain.Model;
+using WebAPI_Studies.api.Domain.Model;
 
-namespace WebAPI_Studies.Infrastructure
+namespace WebAPI_Studies.api.Infrastructure
 {
     public class ConnectionContext : DbContext
     {

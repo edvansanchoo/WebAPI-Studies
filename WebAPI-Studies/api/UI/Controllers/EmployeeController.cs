@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI_Studies.Application.ViewModel;
-using WebAPI_Studies.Domain.Model;
+using WebAPI_Studies.api.Application.ViewModel;
+using WebAPI_Studies.api.Domain.Model;
 
-namespace WebAPI_Studies.Controllers
+namespace WebAPI_Studies.api.UI.Controllers
 {
     [Route("api/v1/employee")]
     [ApiController]
@@ -41,12 +41,12 @@ namespace WebAPI_Studies.Controllers
         [Authorize]
         [HttpPost]
         [Route("{id}/download")]
-        public IActionResult DownloadPhoto(int id) 
+        public IActionResult DownloadPhoto(int id)
         {
             var employee = _employeeRepository.GetById(id);
-            if(employee == null)
+            if (employee == null)
             {
-                return this.NotFound($" Could not find User: {id}");
+                return NotFound($" Could not find User: {id}");
             }
 
             try

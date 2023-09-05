@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebAPI_Studies.Domain.Model
+namespace WebAPI_Studies.api.Domain.Model
 {
     [Table("userauthentication")]
     public class UserModel
