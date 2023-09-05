@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using WebAPI_Studies.api.Application.Services;
 using WebAPI_Studies.api.Application.ViewModel;
 using WebAPI_Studies.api.Domain.Model;
 using WebAPI_Studies.api.Infrastructure;
@@ -12,7 +13,7 @@ namespace WebAPI_Studies.api.Infrastructure.Repositories
         {
             try
             {
-                _context.User.Add(new UserModel(userViewModel.username, userViewModel.password));
+                _context.User.Add(new UserModel(userViewModel.username, Password.HashPassword(userViewModel.password)));
                 _context.SaveChanges();
                 return true;
             }
@@ -41,7 +42,7 @@ namespace WebAPI_Studies.api.Infrastructure.Repositories
             if (userDb != null)
             {
                 userDb.username = userViewModel.username;
-                userDb.password = userViewModel.password;
+                userDb.password = Password.HashPassword(userViewModel.password);
 
                 _context.Update(userDb);
                 _context.SaveChanges();
@@ -63,9 +64,16 @@ namespace WebAPI_Studies.api.Infrastructure.Repositories
 
         public UserModel? GetByUserNameAndPassWord(string username, string password)
         {
-            return _context.User.
-                Where(u => u.username == username && u.password == password)
+            var user = _context.User.
+                Where(u => u.username == username)
                 .SingleOrDefault();
+
+            if (user != null && Password.VerifyPassword(password, user.password))
+            {
+                return user;
+            }
+
+            return null;
         }
     }
 }

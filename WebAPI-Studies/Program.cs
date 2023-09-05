@@ -7,8 +7,6 @@ using WebAPI_Studies.api.Infrastructure;
 using WebAPI_Studies.api.Infrastructure.Repositories;
 using WebAPI_Studies.api.Application.Services;
 using WebAPI_Studies.api.Domain.Model;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
