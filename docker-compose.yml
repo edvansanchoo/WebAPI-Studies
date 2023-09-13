@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  webapi-studies:
+    #image: ${DOCKER_REGISTRY-}webapistudies
+    image: webapistudies:latest
+    #build:
+     # context: .
+      #dockerfile: WebAPI-Studies/Dockerfile
+    container_name: webapi-v1
+    ports:
+      - "80:80"
+      - "443:443"
