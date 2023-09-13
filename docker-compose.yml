@@ -2,12 +2,27 @@ version: '3.4'
 
 services:
   webapi-studies:
-    #image: ${DOCKER_REGISTRY-}webapistudies
-    image: webapistudies:latest
-    #build:
-     # context: .
-      #dockerfile: WebAPI-Studies/Dockerfile
+    image: ${DOCKER_REGISTRY-}webapistudies
+    #image: webapistudies:latest
+    build:
+      context: .
+      dockerfile: WebAPI-Studies/Dockerfile
     container_name: webapi-v1
     ports:
       - "80:80"
       - "443:443"
+    depends_on:
+      - "sqlserver"
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Pass@word
+      #- MSSQL_PID=Developer
+    ports:
+      - 1433:1433
+    #volumes:
+      #- ./sqlserver_data:/var/opt/mssql
+    restart: always
+      
