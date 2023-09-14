@@ -10,7 +10,8 @@ namespace WebAPI_Studies.api.Application.Services
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
                 var serviceDB = serviceScope.ServiceProvider.GetService<ConnectionContext>();
-                serviceDB.Database.Migrate();
+                serviceDB.Database.EnsureCreated();
+                //serviceDB.Database.Migrate();
                 ConnectionContext.SeedData(serviceDB);
             }
         }
