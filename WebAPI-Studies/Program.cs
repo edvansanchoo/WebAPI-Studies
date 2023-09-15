@@ -7,8 +7,24 @@ using WebAPI_Studies.api.Infrastructure;
 using WebAPI_Studies.api.Infrastructure.Repositories;
 using WebAPI_Studies.api.Application.Services;
 using WebAPI_Studies.api.Domain.Model;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//var dbHost = "192.168.100.89";
+//var database = "webapi";
+//var user = "sa";
+//var password = "Pass@word";
+
+var dbHost = Environment.GetEnvironmentVariable("DBHOST");
+var database = Environment.GetEnvironmentVariable("DATABASE");
+var user = Environment.GetEnvironmentVariable("USER");
+var password = Environment.GetEnvironmentVariable("PASSWORD");
+
+//var connectionString = $"Data Source={dbHost}; Initial Catalog={database}; User ID={user}; Password={password}";
+var connectionString = $"Server={dbHost}; Database={database}; User Id={user}; Password={password}; Trusted_Connection=False; Encrypt=false; TrustServerCertificate=True";
+
+builder.Services.AddDbContext<ConnectionContext>(options => options.UseSqlServer(connectionString));
 
 // Add services to the container.
 
@@ -70,7 +86,6 @@ builder.Services.AddAuthentication(x =>
 });
 
 var app = builder.Build();
-
 
 
 

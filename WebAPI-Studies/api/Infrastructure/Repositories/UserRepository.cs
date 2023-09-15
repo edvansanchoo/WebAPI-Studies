@@ -8,7 +8,13 @@ namespace WebAPI_Studies.api.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ConnectionContext _context = new ConnectionContext();
+        private readonly ConnectionContext _context;
+
+        public UserRepository(ConnectionContext context)
+        {
+            _context = context;
+        }
+
         public bool Add(UserViewModel userViewModel)
         {
             try

@@ -1,9 +1,12 @@
 ﻿version: '3.9'
 
+
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2019-latest
     platform: linux
+    #user: root
+    container_name: sqlserver
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Pass@word
