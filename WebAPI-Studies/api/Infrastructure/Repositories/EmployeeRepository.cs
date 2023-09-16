@@ -5,7 +5,13 @@ namespace WebAPI_Studies.api.Infrastructure.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        private readonly ConnectionContext _context = new ConnectionContext();
+        private readonly ConnectionContext _context;
+
+        public EmployeeRepository(ConnectionContext context)
+        {
+            _context = context;
+        }
+
         public void Add(EmployeeModel employeeModel)
         {
             _context.Employees.Add(employeeModel);

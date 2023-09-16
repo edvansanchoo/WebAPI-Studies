@@ -1,13 +1,18 @@
-version: '3.4'
+version: '3.9'
 
 services:
   webapi-studies:
-    #image: ${DOCKER_REGISTRY-}webapistudies
-    image: webapistudies:latest
-    #build:
-     # context: .
-      #dockerfile: WebAPI-Studies/Dockerfile
+    image: ${DOCKER_REGISTRY-}edvanwebapistudies
+    #image: webapistudies:latest
+    build:
+      context: .
+      dockerfile: WebAPI-Studies/Dockerfile
     container_name: webapi-v1
+    environment:
+        - DBHOST=192.168.100.89
+        - DATABASE=webapi
+        - USER=sa
+        - PASSWORD=Pass@word
     ports:
       - "80:80"
       - "443:443"
